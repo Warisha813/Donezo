@@ -3,43 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Donezo - Learn & Do</title>
+  <title>🎯 Donezo - Learn & Do</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>🎯 Donezo - Learn & Do</h1>
+    <h1>🎯 Donezo</h1>
     <p>Track your learning, earn points & badges!</p>
   </header>
 
   <main>
-    <!-- Add new task form -->
-    <div id="add-task-form">
+    <!-- Progress & Badge -->
+    <div class="dashboard">
+      <div class="progress-container">
+        <span>Total Points: <span id="totalPoints">0</span></span>
+        <div class="progress-bar">
+          <div id="pointsBar"></div>
+        </div>
+      </div>
+      <div id="badge" class="badge"></div>
+      <p id="streak">🔥 Current streak: 0 days</p>
+    </div>
+
+    <!-- Add Task Button -->
+    <button class="add-btn" id="openModal">➕ Add Task</button>
+
+    <!-- Task Container -->
+    <div id="taskContainer" class="task-container"></div>
+
+    <!-- Chart -->
+    <canvas id="subjectChart" width="400" height="200"></canvas>
+  </main>
+
+  <!-- Add Task Modal -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
       <h2>Add New Task</h2>
-      <input type="text" id="task-title" placeholder="Task title">
-      <select id="task-subject">
+      <input type="text" id="taskTitle" placeholder="Task title">
+      <select id="taskSubject">
         <option value="Math">Math</option>
         <option value="AI">AI</option>
         <option value="Web">Web</option>
         <option value="Productivity">Productivity</option>
       </select>
-      <select id="task-difficulty">
+      <select id="taskDifficulty">
         <option value="Easy">Easy</option>
         <option value="Medium">Medium</option>
         <option value="Hard">Hard</option>
       </select>
-      <button onclick="addTask()">Add Task</button>
+      <button id="saveTask">Add Task</button>
     </div>
-
-    <!-- Dashboard -->
-    <div id="dashboard"></div>
-
-    <!-- Streak -->
-    <p id="streak">🔥 Current streak: 0 days</p>
-
-    <!-- Chart -->
-    <canvas id="subjectChart" width="400" height="200"></canvas>
-  </main>
+  </div>
 
   <footer>
     <p>Made by Warisha - MLSA Portfolio Project</p>
