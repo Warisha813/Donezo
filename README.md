@@ -12,7 +12,8 @@ Features:
 
 - ## 🔗 Live Demo
 
-Check the project live here: [Donezo - Learn & Do](https://deft-bombolone-9c33f8.netlify.app/))
+Check the project live here: [Donezo - Learn & Do](https://deft-bombolone-9c33f8.netlify.app/)
+
 
 
 Made by Warisha - MLSA Portfolio Project
