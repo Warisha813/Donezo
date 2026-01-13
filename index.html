@@ -2,34 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Donezo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donezo - Learn & Do</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>🎯 Donezo - Learn & Do</h1>
+    <p>Track your learning, earn points & badges!</p>
+  </header>
 
-  <div class="card">
-    <h1>Donezo</h1>
-    <p class="subtitle">Finish small. Win daily.</p>
+  <main>
+    <div id="dashboard"></div>
+    <p id="streak">🔥 Current streak: 0 days</p>
+    <canvas id="subjectChart" width="400" height="200"></canvas>
+  </main>
 
-    <div class="input-row">
-      <input id="taskInput" placeholder="What do you want to finish?" />
-      <button id="addBtn">+</button>
-    </div>
+  <footer>
+    <p>Made by Warisha - MLSA Portfolio Project</p>
+  </footer>
 
-    <div class="status">
-      <span id="statusText">0 of 0 done</span>
-      <div class="progress">
-        <div id="progressFill"></div>
-      </div>
-    </div>
-
-    <ul id="taskList"></ul>
-  </div>
-
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="app.js"></script>
-  <div id="dashboard"></div>
-<p id="streak">🔥 Current streak: 0 days</p>
-<canvas id="subjectChart" width="400" height="200"></canvas>
-
 </body>
 </html>
