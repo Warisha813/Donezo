@@ -30,12 +30,13 @@ window.onclick = (e)=> {if(e.target==modal) modal.style.display="none";}
 // Add Task
 document.getElementById("saveTask").onclick = ()=>{
   const title = document.getElementById("taskTitle").value;
-  const subject = document.getElementById("taskSubject").value;
+  const subject = document.getElementById("taskSubject").value.trim();
   const difficulty = document.getElementById("taskDifficulty").value;
-  if(title.trim()=="") return alert("Enter task title");
+  if(title==""||subject=="") return alert("Enter task title and subject");
 
   tasks.push({title, subject, difficulty, completed:false, date:new Date().toISOString().split('T')[0]});
   document.getElementById("taskTitle").value="";
+  document.getElementById("taskSubject").value="";
   modal.style.display="none";
   renderTasks();
   updateChart();
@@ -64,7 +65,8 @@ function renderTasks(){
   });
 
   document.getElementById("totalPoints").innerText = totalPoints;
-  document.getElementById("pointsBar").style.width = Math.min(totalPoints,300)+"px";
+  const progressPercent = Math.min(totalPoints,300)/300*100;
+  document.getElementById("pointsBar").style.width = progressPercent+"%";
   document.getElementById("badge").innerText = getBadge(totalPoints);
   document.getElementById("streak").innerText = `🔥 Current streak: ${calculateStreak()} days`;
 }
@@ -92,27 +94,32 @@ function calculateStreak(){
 
 // Chart.js
 const ctx = document.getElementById("subjectChart").getContext("2d");
-const chart = new Chart(ctx,{
-  type:"bar",
-  data:{
-    labels:["Math","AI","Web","Productivity"],
-    datasets:[{
-      label:"Completed Tasks",
-      data:[0,0,0,0],
-      backgroundColor:['#f59e0b','#6366f1','#10b981','#ec4899']
-    }]
-  },
-  options:{responsive:true}
-});
+let chart;
 
-function updateChart(){
-  chart.data.datasets[0].data = [
-    tasks.filter(t=>t.subject=="Math"&&t.completed).length,
-    tasks.filter(t=>t.subject=="AI"&&t.completed).length,
-    tasks.filter(t=>t.subject=="Web"&&t.completed).length,
-    tasks.filter(t=>t.subject=="Productivity"&&t.completed).length
-  ];
-  chart.update();
+// Function to update chart with dynamic subjects
+function updateChart() {
+  const subjects = [...new Set(tasks.map(t => t.subject))];
+  const counts = subjects.map(sub => tasks.filter(t => t.subject===sub && t.completed).length);
+
+  if(!chart){
+    chart = new Chart(ctx,{
+      type:"bar",
+      data:{
+        labels: subjects,
+        datasets:[{
+          label:"Completed Tasks",
+          data: counts,
+          backgroundColor: subjects.map((_,i)=> `hsl(${i*60},70%,50%)`)
+        }]
+      },
+      options:{responsive:true}
+    });
+  } else {
+    chart.data.labels = subjects;
+    chart.data.datasets[0].data = counts;
+    chart.data.datasets[0].backgroundColor = subjects.map((_,i)=> `hsl(${i*60},70%,50%)`);
+    chart.update();
+  }
 }
 
 // Initial render
