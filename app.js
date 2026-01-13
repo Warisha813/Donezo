@@ -1,10 +1,14 @@
+// Task data
 const tasks = [
   { title: "Finish Math assignment", subject: "Math", difficulty: "Medium", completed: false, date: "2026-01-13" },
   { title: "Watch AI lecture", subject: "AI", difficulty: "Easy", completed: false, date: "2026-01-13" },
+  { title: "Build small web app", subject: "Web", difficulty: "Hard", completed: false, date: "2026-01-13" },
+  { title: "Plan study schedule", subject: "Productivity", difficulty: "Easy", completed: false, date: "2026-01-13" }
 ];
 
 let totalPoints = 0;
 
+// Points based on difficulty
 function getPoints(task) {
   switch(task.difficulty) {
     case "Easy": return 10;
@@ -14,6 +18,7 @@ function getPoints(task) {
   }
 }
 
+// Badge based on points
 function getBadge(totalPoints) {
   if(totalPoints >= 200) return "🏆 Superstar";
   if(totalPoints >= 100) return "🎖 Achiever";
@@ -21,6 +26,7 @@ function getBadge(totalPoints) {
   return "";
 }
 
+// Render tasks
 function renderTasks() {
   const dashboard = document.getElementById("dashboard");
   dashboard.innerHTML = "";
@@ -28,6 +34,7 @@ function renderTasks() {
 
   tasks.forEach((task, index) => {
     totalPoints += getPoints(task);
+
     const card = document.createElement("div");
     card.className = `card ${task.subject}`;
     card.innerHTML = `
@@ -36,7 +43,10 @@ function renderTasks() {
       <p>Difficulty: ${task.difficulty}</p>
       <p>Points: ${getPoints(task)}</p>
       <span class="badge">${getBadge(totalPoints)}</span>
-      <button onclick="completeTask(${index})">Complete</button>
+      <br>
+      <button onclick="completeTask(${index})" ${task.completed ? 'disabled' : ''}>
+        ${task.completed ? '✅ Completed' : 'Complete'}
+      </button>
     `;
     dashboard.appendChild(card);
   });
@@ -44,12 +54,24 @@ function renderTasks() {
   document.getElementById("streak").innerText = `🔥 Current streak: ${calculateStreak()} days`;
 }
 
+// Complete task with confetti
 function completeTask(index) {
-  tasks[index].completed = true;
-  renderTasks();
-  chart.update();
+  if(!tasks[index].completed) {
+    tasks[index].completed = true;
+
+    // Confetti
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+    renderTasks();
+    chart.update();
+  }
 }
 
+// Calculate streak
 function calculateStreak() {
   let streak = 0;
   tasks.sort((a,b) => new Date(b.date) - new Date(a.date));
@@ -60,7 +82,7 @@ function calculateStreak() {
   return streak;
 }
 
-// Chart.js
+// Chart.js dashboard
 const ctx = document.getElementById('subjectChart').getContext('2d');
 const chart = new Chart(ctx, {
   type: 'bar',
@@ -80,4 +102,5 @@ const chart = new Chart(ctx, {
   options: { responsive: true }
 });
 
+// Initial render
 renderTasks();
