@@ -10,5 +10,10 @@ Features:
 - Responsive design with **neutral, professional palette**
 - Perfect for **MLSA portfolio & GitHub showcase**
 
+- ## 🔗 Live Demo
+
+Check the project live here: [Donezo - Learn & Do](https://deft-bombolone-9c33f8.netlify.app/)
+
+
 Made by Warisha - MLSA Portfolio Project
 
