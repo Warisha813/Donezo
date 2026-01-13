@@ -1,91 +1,64 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
+  font-family: Arial, sans-serif;
+  background-color: #1e1e2f;
+  color: #fff;
   margin: 0;
-  height: 100vh;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
-  background: radial-gradient(circle at top, #1f2933, #0f172a);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #e5e7eb;
+  padding: 0;
 }
 
-.card {
-  background: #020617;
-  width: 330px;
-  padding: 22px;
-  border-radius: 18px;
-  box-shadow: 0 20px 40px rgba(0,0,0,.6);
+header {
+  text-align: center;
+  padding: 20px;
+  background: #27293d;
 }
 
 h1 {
   margin: 0;
+  color: #10b981;
 }
 
-.subtitle {
-  font-size: 14px;
-  color: #94a3b8;
-  margin-bottom: 16px;
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 10px;
 }
 
-.input-row {
-  display: flex;
-  gap: 8px;
-}
-
-input {
-  flex: 1;
+.card {
+  border: 2px solid #ddd;
   padding: 10px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-  background: #020617;
-  color: #e5e7eb;
-  border: 1px solid #1e293b;
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: #2c2c3e;
+}
+
+.card.Math { border-left: 5px solid #f59e0b; }
+.card.AI { border-left: 5px solid #6366f1; }
+.card.Web { border-left: 5px solid #10b981; }
+.card.Productivity { border-left: 5px solid #ec4899; }
+
+.badge {
+  font-weight: bold;
+  margin-left: 10px;
+  color: #fbbf24;
 }
 
 button {
-  padding: 10px 14px;
-  border-radius: 10px;
+  margin-top: 5px;
+  padding: 5px 10px;
   border: none;
-  cursor: pointer;
-  background: #22c55e;
-  color: #020617;
-  font-weight: bold;
-}
-
-.status {
-  margin: 14px 0;
-}
-
-.progress {
-  height: 6px;
-  background: #1e293b;
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-#progressFill {
-  height: 100%;
-  width: 0%;
-  background: #22c55e;
-  transition: width 0.3s ease;
-}
-
-li {
-  list-style: none;
-  padding: 10px;
-  background: #020617;
-  border: 1px solid #1e293b;
-  border-radius: 10px;
-  margin-top: 8px;
+  border-radius: 5px;
+  background-color: #6366f1;
+  color: white;
   cursor: pointer;
 }
 
-li.done {
-  text-decoration: line-through;
-  opacity: 0.5;
+button:hover {
+  background-color: #4f46e5;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #27293d;
 }
