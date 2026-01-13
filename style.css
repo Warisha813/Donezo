@@ -1,24 +1,24 @@
-/* General */
+/* Base styles */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #1f1f2f;
-  color: #fff;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 header {
   text-align: center;
   padding: 20px;
-  background-color: #27293d;
+  background-color: #e0e0e0;
 }
 
 h1 {
-  color: #10b981;
+  color: #2c3e50;
   margin: 0;
 }
 
 p {
-  color: #ccc;
+  color: #555;
 }
 
 main {
@@ -38,7 +38,7 @@ main {
 
 .progress-bar {
   width: 100%;
-  background-color: #33334d;
+  background-color: #ddd;
   border-radius: 10px;
   height: 20px;
   margin-top: 5px;
@@ -47,7 +47,7 @@ main {
 #pointsBar {
   height: 100%;
   width: 0%;
-  background-color: #10b981;
+  background-color: #3498db;
   border-radius: 10px;
   transition: width 0.5s;
 }
@@ -55,7 +55,7 @@ main {
 .badge {
   font-size: 1.2em;
   margin: 5px 0;
-  color: #fbbf24;
+  color: #e67e22;
 }
 
 /* Add Task Button */
@@ -63,7 +63,7 @@ main {
   display: block;
   margin: 0 auto 20px auto;
   padding: 10px 20px;
-  background-color: #6366f1;
+  background-color: #2ecc71;
   border: none;
   border-radius: 8px;
   font-size: 1em;
@@ -72,7 +72,7 @@ main {
 }
 
 .add-btn:hover {
-  background-color: #4f46e5;
+  background-color: #27ae60;
 }
 
 /* Tasks */
@@ -83,16 +83,17 @@ main {
 }
 
 .task-card {
-  background-color: #2c2c3e;
+  background-color: #ffffff;
   padding: 15px;
   border-radius: 10px;
+  border: 1px solid #ccc;
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .task-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
 }
 
 .task-card h3 {
@@ -107,15 +108,16 @@ main {
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: #10b981;
+  background-color: #3498db;
   border: none;
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  color: white;
 }
 
 .complete-btn:disabled {
-  background-color: #4f4f7a;
+  background-color: #aaa;
   cursor: default;
 }
 
@@ -127,14 +129,14 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.5);
   justify-content: center;
   align-items: center;
   z-index: 100;
 }
 
 .modal-content {
-  background-color: #2c2c3e;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   width: 90%;
@@ -149,11 +151,11 @@ main {
   padding: 8px 10px;
   width: 80%;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #ccc;
 }
 
 .modal-content button {
-  background-color: #6366f1;
+  background-color: #2ecc71;
   color: white;
   cursor: pointer;
 }
@@ -171,5 +173,5 @@ footer {
   text-align: center;
   margin-top: 30px;
   padding: 15px;
-  background-color: #27293d;
+  background-color: #e0e0e0;
 }
