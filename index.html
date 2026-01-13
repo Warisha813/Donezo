@@ -13,8 +13,31 @@
   </header>
 
   <main>
+    <!-- Add new task form -->
+    <div id="add-task-form">
+      <h2>Add New Task</h2>
+      <input type="text" id="task-title" placeholder="Task title">
+      <select id="task-subject">
+        <option value="Math">Math</option>
+        <option value="AI">AI</option>
+        <option value="Web">Web</option>
+        <option value="Productivity">Productivity</option>
+      </select>
+      <select id="task-difficulty">
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+      <button onclick="addTask()">Add Task</button>
+    </div>
+
+    <!-- Dashboard -->
     <div id="dashboard"></div>
+
+    <!-- Streak -->
     <p id="streak">🔥 Current streak: 0 days</p>
+
+    <!-- Chart -->
     <canvas id="subjectChart" width="400" height="200"></canvas>
   </main>
 
