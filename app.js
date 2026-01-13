@@ -1,12 +1,5 @@
 // Task data
-const tasks = [
-  { title: "Finish Math assignment", subject: "Math", difficulty: "Medium", completed: false, date: "2026-01-13" },
-  { title: "Watch AI lecture", subject: "AI", difficulty: "Easy", completed: false, date: "2026-01-13" },
-  { title: "Build small web app", subject: "Web", difficulty: "Hard", completed: false, date: "2026-01-13" },
-  { title: "Plan study schedule", subject: "Productivity", difficulty: "Easy", completed: false, date: "2026-01-13" }
-];
-
-let totalPoints = 0;
+let tasks = [];
 
 // Points based on difficulty
 function getPoints(task) {
@@ -26,11 +19,27 @@ function getBadge(totalPoints) {
   return "";
 }
 
+// Add new task
+function addTask() {
+  const title = document.getElementById("task-title").value;
+  const subject = document.getElementById("task-subject").value;
+  const difficulty = document.getElementById("task-difficulty").value;
+
+  if(title.trim() === "") return alert("Please enter task title!");
+
+  tasks.push({ title, subject, difficulty, completed: false, date: new Date().toISOString().split('T')[0] });
+
+  document.getElementById("task-title").value = "";
+  renderTasks();
+  chart.update();
+}
+
 // Render tasks
 function renderTasks() {
   const dashboard = document.getElementById("dashboard");
   dashboard.innerHTML = "";
-  totalPoints = 0;
+
+  let totalPoints = 0;
 
   tasks.forEach((task, index) => {
     totalPoints += getPoints(task);
@@ -54,7 +63,7 @@ function renderTasks() {
   document.getElementById("streak").innerText = `🔥 Current streak: ${calculateStreak()} days`;
 }
 
-// Complete task with confetti
+// Complete task
 function completeTask(index) {
   if(!tasks[index].completed) {
     tasks[index].completed = true;
@@ -82,7 +91,7 @@ function calculateStreak() {
   return streak;
 }
 
-// Chart.js dashboard
+// Chart.js
 const ctx = document.getElementById('subjectChart').getContext('2d');
 const chart = new Chart(ctx, {
   type: 'bar',
