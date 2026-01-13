@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donezo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>Donezo</h1>
+    <p class="subtitle">Finish small. Win daily.</p>
+
+    <div class="input-row">
+      <input id="taskInput" placeholder="What do you want to finish?" />
+      <button id="addBtn">+</button>
+    </div>
+
+    <div class="status">
+      <span id="statusText">0 of 0 done</span>
+      <div class="progress">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
