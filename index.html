@@ -14,7 +14,7 @@
   </header>
 
   <main>
-    <!-- Progress & Badge -->
+    <!-- Dashboard -->
     <div class="dashboard">
       <div class="progress-container">
         <span>Total Points: <span id="totalPoints">0</span></span>
@@ -26,28 +26,23 @@
       <p id="streak">🔥 Current streak: 0 days</p>
     </div>
 
-    <!-- Add Task Button -->
+    <!-- Add Task -->
     <button class="add-btn" id="openModal">➕ Add Task</button>
 
-    <!-- Task Container -->
+    <!-- Task Cards -->
     <div id="taskContainer" class="task-container"></div>
 
     <!-- Chart -->
     <canvas id="subjectChart" width="400" height="200"></canvas>
   </main>
 
-  <!-- Add Task Modal -->
+  <!-- Task Modal -->
   <div id="taskModal" class="modal">
     <div class="modal-content">
       <span class="close-btn" id="closeModal">&times;</span>
       <h2>Add New Task</h2>
       <input type="text" id="taskTitle" placeholder="Task title">
-      <select id="taskSubject">
-        <option value="Math">Math</option>
-        <option value="AI">AI</option>
-        <option value="Web">Web</option>
-        <option value="Productivity">Productivity</option>
-      </select>
+      <input type="text" id="taskSubject" placeholder="Subject (e.g., AI, Design)">
       <select id="taskDifficulty">
         <option value="Easy">Easy</option>
         <option value="Medium">Medium</option>
